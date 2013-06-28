@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="contentcontainer">
+
+<div class="offer_container">
+<h3>Browse Rewards</h3>
+<div class="offer_inner">
+
+<div class="top">
+<div class="top_left">
+<img class="offer_img" src="{{ MEDIA_URL }}img/item_bg.png"/>
+<img class="offer_img_content" src ="{{ MEDIA_URL }}img/rewardsupperleft.jpg"/>
+</div>
+
+<div class="top_right">
+<img class="offer_img" src="{{ MEDIA_URL }}img/item_bg.png"/>
+<div class="offer_img_content fluid-container">
+<img class="span2 offer_img_content_img" src="{{ MEDIA_URL }}img/frozenfoods.jpg" />
+
+<div class="span3 offer_info">
+<h3 style="color:#ED0000;"> ${{ offer1.reward_amount }} in {{ offer1.reward_category }}</h3>
+<h4> when you spend ${{ offer1.purchase_amount }} or more in {{ offer1.purchase_category }} </h3>
+{% if offer1.activated %}
+<div class="progress progress-stripped active">
+<div class="bar" style="width: {{ offer1.progress }}%;"></div>
+</div>
+<p>Offer valid thru {{ offer1.expiration }}</p>
+<p>Store Reward</p>
+{% else %}
+<form method="POST" action="/activate/">
+{% csrf_token %}
+<input class="btn btn-primary" type="submit" name="offer1" value="earn it" />
+</form>
+{% endif %}
+</div>
+
+
+</div>
+</div>
+</div>
+
+<div class="bottom">
+<div class= "bottom_left">
+<img class="offer_img" src="{{ MEDIA_URL }}img/item_bg.png"/>
+<div class="offer_img_content fluid-container">
+<img class="span2 offer_img_content_img" src="{{ MEDIA_URL }}img/gardenfloral.jpg" />
+
+<div class="span3 offer_info">
+<h3 style="color:#ED0000;"> ${{ offer2.reward_amount }} in {{ offer2.reward_category }}</h3>
+<h4> when you spend ${{ offer2.purchase_amount }} or more in {{ offer2.purchase_category }} </h3>
+{% if offer2.activated %}
+<div class="progress progress-stripped active">
+<div class="bar" style="width: {{ offer2.progress }}%;"></div>
+</div>
+<p>Offer valid thru {{ offer2.expiration }}</p>
+<p>Store Reward</p>
+{% else %}
+<form method="POST" action="/activate/">
+{% csrf_token %}
+<input type="hidden" name="offer2" />
+<input class="btn btn-primary" type="submit" value="earn it" />
+</form>
+{% endif %}
+</div>
+
+
+</div>
+</div>
+
+<div class="bottom_right">
+<img class="offer_img" src="{{ MEDIA_URL }}img/item_bg.png"/>
+<div class="offer_img_content fluid-container">
+<img class="span2 offer_img_content_img" src="{{ MEDIA_URL }}img/apparel.jpg" />
+
+<div class="span3 offer_info">
+<h3 style="color:#ED0000;"> ${{ offer3.reward_amount }} in {{ offer3.reward_category }}</h3>
+<h4> when you spend ${{ offer3.purchase_amount }} or more in {{ offer3.purchase_category }} </h3>
+{% if offer3.activated %}
+<div class="progress progress-stripped active">
+<div class="bar" style="width: {{ offer3.progress }}%;"></div>
+</div>
+<p>Offer valid thru {{ offer3.expiration }}</p>
+<p>Store Reward</p>
+{% else %}
+
+<form method="POST" action="/activate/">
+{% csrf_token %}
+<input type="hidden" name="offer3" />
+<input class="btn btn-primary" type="submit" value="earn it" />
+</form>
+
+{% endif %}
+</div>
+
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+{% endblock %}

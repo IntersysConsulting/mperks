@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><!-- InstanceBegin template="/Templates/subpage-1.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+    <!-- InstanceBeginEditable name="title" --><title>Personalized Rewards</title>  <!-- InstanceEndEditable -->
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Bootstrap -->
+<link href="{{ MEDIA_URL }}css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <meta http-equiv="Content-Language" content="en-us" />
+    <meta name="Description" content="Personalized Rewards" />
+    <link rel="stylesheet" href="{{ MEDIA_URL }}css/index.css"  type="text/css" media="screen">
+ <script src="http://code.jquery.com/jquery.js"></script>
+<script src="{{ MEDIA_URL }}js/bootstrap.min.js"></script>
+</head>
+
+<body>
+<div class="banner_top">
+
+<div class="top_nav">
+<ul class= "mainmenu">
+<li><a href="http://www.intersysconsulting.com">IntersysConsulting.com</a></li>
+<li><a href="http://www.intersysconsulting.com">Weekly Ads</a></li>
+<li><a href="http://www.intersysconsulting.com">Find a Store</a></li>
+</ul>
+</div>
+
+<div class="wide_header">
+<div class="main_logo">
+</div>
+<div class="signin">
+<div class="signinarea">
+{% if user.is_authenticated %}
+<p>Welcome, {{ first_name }}</p>
+<a class="btn" href="/signout/"> Sign out</a>
+{% else %}
+<button class="btn primary" data-toggle="modal" data-target="#signinModal"> Sign In</button>
+<a href="/newuser/">Create User</a>
+{% endif %}
+</div>
+</div>
+</div>
+
+<div class="middle_nav">
+{% if user.is_authenticated %}
+<ul class="homemenu">
+<li class="redborder"><a href="/rewards/">Rewards</a></li>
+<li class= "blueborder"><a href="#">Coupons</a></li>
+<li class= "blueborder"><a href="#">Clipped</a></li>
+</ul>
+{% else %}
+{% endif %}
+
+<ul class="sitemenu">
+<li><a href="http://www.intersysconsulting.com">FAQ</a></li>
+<li><a href="http://www.intersysconsulting.com">About aPerks</a></li>
+<li><a href="http://www.intersysconsulting.com">Contact Us</a></li>
+</ul>
+
+
+</div><!-- end middle_nav -->
+</div><!-- end banner top -->
+
+{% block content %}{% endblock %}
+
+<div class="footer">
+<p> Special pricing and offers are good only while supplies last and may differ from instore pricing and offers. often offers a greater selection than what you'll find in our stores. Please see our FAQ, Terms and Conditions of Use, and California Transparency in Supply Chains Disclosure for complete details.</p>
+
+</div>
+
+<div id="signinModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+<h3 id="myModalLabel">Sign in</h3>
+</div>
+<div class="modal-body">
+<form action="/signin/" method='POST'>{% csrf_token %}
+<p>aPerks mobile number:</p>
+<p><input type="text" name="mobile_number"/></p>
+<p>4-Digit PIN:</p>
+<p><input type="text" name="four_digit_pin"/></p>
+<p><input type="submit" value="Sign in" class="btn btn-primary"/></p>
+</form>
+</div>
+<div class="modal-footer">
+<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+</div>
+</div>
+
+<script>
+$('#signinModal').modal(options)
+$('#newuserModal').modal(options)
+</script>
+</body>
+

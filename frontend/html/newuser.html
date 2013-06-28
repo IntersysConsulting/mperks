@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="contentcontainer row-fluid">
+<div class="span6 userform">
+<h2> sign up and start saving</h2>
+{% if message %}
+<p>{{ message }}</p>
+{% endif %}
+<form method="POST" action="/create_or_update/">
+{% csrf_token %}
+
+{{form.as_p}}
+
+<input class="btn btn-primary" type="submit" value="Continue" />
+<input type="hidden" name="next" value="{{ next }}" />
+</form>
+</div>
+
+<div class="span6">
+<div class="info">
+<h3>Membership has its perks:</h3>
+<p>
+    Find savings fast: discover the latest deals, see what’s recommended for you, or browse featured offers by department.
+    Lose the scissors: select digital coupons online or on the Intersys mobile app, enter your aPerks number and PIN at checkout, and redeem instant savings on the items you picked up.
+    Earn rewards: Earn savings when you buy everyday items with aPerks rewards. Choose and earn new personalized rewards, and we'll show you how to earn your way to savings.
+</p>
+<h3>Ready to Join?</h3>
+<p>All you’ll need is a mobile phone and the required information on this page. You must be 18 years of age or older to participate. </p>
+
+
+</div>
+</div>
+
+
+</div>
+
+{% endblock %}
