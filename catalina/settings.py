@@ -12,9 +12,9 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'meijer',                # Or path to database file if using sqlite3.
-        'USER': 'root',                      # Not used with sqlite3.
-        'PASSWORD': 'ema7&7nuel',                  # Not used with sqlite3.
+        'NAME': 'mpr',                # Or path to database file if using sqlite3.
+        'USER': 'app',                      # Not used with sqlite3.
+        'PASSWORD': 'itIStop53cr3t',                  # Not used with sqlite3.
         'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
         'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
     }
@@ -47,7 +47,7 @@ USE_TZ = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
-MEDIA_ROOT = '/home/intersys002/Workspace/catalina/Intersys/catalina/frontend'
+MEDIA_ROOT = '/srv/www/htdocs/mperks/catalina/frontend'
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
@@ -108,7 +108,7 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    '/home/intersys002/Workspace/catalina/Intersys/catalina/frontend/html'
+    '/srv/www/htdocs/mperks/catalina/frontend/html'
 )
 
 INSTALLED_APPS = (
@@ -120,7 +120,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'meijer',
 #    'south',
-    'bootstrap_toolkit',
+#    'bootstrap_toolkit',
     # Uncomment the next line to enable the admin:
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:

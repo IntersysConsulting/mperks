@@ -17,26 +17,30 @@
 <body>
 <div class="banner_top">
 
-<div class="top_nav">
-<ul class= "mainmenu">
+<div class="wide_header">
+<div style="width:932px;margin-left:auto;margin-right:auto;">
+<div class="main_logo">
+<img class="offer_img" href="/index/" src="{{ MEDIA_URL }}img/logo_mperks.png"/>
+</div>
+<ul class="mainmenu" >
 <li><a href="http://www.intersysconsulting.com">IntersysConsulting.com</a></li>
+<li><a>|</a></li>
 <li><a href="http://www.intersysconsulting.com">Weekly Ads</a></li>
+<li><a>|</a></li>
 <li><a href="http://www.intersysconsulting.com">Find a Store</a></li>
 </ul>
-</div>
-
-<div class="wide_header">
-<div class="main_logo">
-</div>
 <div class="signin">
 <div class="signinarea">
 {% if user.is_authenticated %}
-<p>Welcome, {{ first_name }}</p>
-<a class="btn" href="/signout/"> Sign out</a>
+<div style="margin-top:8px;">
+<p style="color:#08c" >Welcome, {{ first_name }}</p>
+<a style="margin-left:10px;" class="btn" href="/signout/"> Sign out</a>
+</div>
 {% else %}
 <button class="btn primary" data-toggle="modal" data-target="#signinModal"> Sign In</button>
 <a href="/newuser/">Create User</a>
 {% endif %}
+</div>
 </div>
 </div>
 </div>

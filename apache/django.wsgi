@@ -1,6 +1,10 @@
 import os, sys
-sys.path.append('/home/ubuntu/socialmedia')
-os.environ['DJANGO_SETTINGS_MODULE'] = 'socialmedia.settings'
+
+path = '/srv/www/htdocs/mperks/catalina'
+if path not in sys.path:
+    sys.path.append(path)
+
+os.environ['DJANGO_SETTINGS_MODULE'] = 'catalina.settings'
 
 import django.core.handlers.wsgi
 

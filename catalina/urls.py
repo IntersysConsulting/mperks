@@ -9,6 +9,7 @@ from meijer import views
 
 urlpatterns = patterns('',
     url(r'^$', 'meijer.views.index', name='index'),
+    url(r'^index/$' , 'meijer.views.index'),
     # Uncomment the admin/doc line below to enable admin documentation:
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
     url(r'^signin/$' , 'meijer.views.signin'),
